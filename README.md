@@ -1,11 +1,11 @@
-* Install python2.7[0] and make sure python is added in env variabales
+* Install [Python2.7][0] and make sure python is added in env variabales
 * config.py is the config file
 * change the following in config.py
-	PUBLISHSETTINGS_FILE <<path of publish setting file>>
-	LOG_FILE <<path for the log file>>
-	FILE_PATH <<path for the Json log file>>
-	CERT_FILE <<path for the .pem file>>
-	SUBSCRIPTION_ID <<Subscription id of azure account>>
+	* PUBLISHSETTINGS_FILE <\<path of publish setting file>>
+	* LOG_FILE <\<path for the log file>>
+	* FILE_PATH <\<path for the Json log file>>
+	* CERT_FILE <\<path for the .pem file>>
+	* SUBSCRIPTION_ID <\<Subscription id of azure account>>
 * open cmd prompt and cd to proj folder(where AutomationScript.py and config.py are present)
 * run the script using following command "python AutomationScript.py"
 
