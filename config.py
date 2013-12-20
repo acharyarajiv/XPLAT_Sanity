@@ -26,7 +26,8 @@ config = {
 "VM_COMM_NAME" : "OffshoreTestComm",
 "VM_SSH_NAME" : "OffshoreTestSsh",
 
-"IMAGE_NAME" :"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-12_04_2-LTS-amd64-server-20130325-en-us-30GB",
+"IMAGE_NAME" :"Some Linux Image Name",
+"WIN_IMAGE_NAME" :"Some Windows Image Name",
 "VM_VNET_IMAGE_NAME" :"OffshoreTestImage002",
 "VM_COMM_IMAGE_NAME" :"vmdepot-2440-6-1",
 
@@ -63,7 +64,7 @@ config = {
 #************** VM DISK UPLOAD VARIABLES *****************
 "DISK_UPLOAD_BLOB_URL":"http://acsforsdk2.blob.core.windows.net/disks/OffshoreTestDiskImage002.vhd",
 "DISK_UPLOAD_SOURCE_PATH" : "http://acsforsdk2.blob.core.windows.net/vm-images/OffshoreTestImage002.vhd",
-"STORAGE_ACCOUNT_KEY":"1IU5o+vRtVBLHC5RFtXXu/DYl6mmGKupYKWL+liqunMo/IbJxz8Y0hSAwMkOUTtsTpR9adL63fx2Ujd7mMGSaA==",
+"STORAGE_ACCOUNT_KEY":"YW55IGNhcm5hbCBwbGVhc3VyZQ==",
 
 #************** MULTIPLE ENDPOINT VALUES **************************
 "ONLYPP_PUBLICPORT":"3333",
