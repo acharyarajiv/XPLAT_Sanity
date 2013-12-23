@@ -49,7 +49,7 @@ config = {
 "VM_IMAGE_NAME" : "OffshoreTestImage002",
 "VM_IMAGE_LABEL" : "OffshoreTestImage",
 "VM_IMAGE_DESC" : '"Test Offshore Image"',
-"VM_DISK_SOURCE_PATH" :"disk path",
+"VM_DISK_SOURCE_PATH" :"some disk path",
 "IMAGE_BLOB_URL" :"http://acsforsdk2.blob.core.windows.net/vm-images/OffshoreTestImage002.vhd" ,
 "TARGET_IMG_NAME" : "OffshoreTestImage003",
 
