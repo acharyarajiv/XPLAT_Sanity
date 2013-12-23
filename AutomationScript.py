@@ -83,6 +83,10 @@ if __name__ == "__main__":
 		execute_command("azure vm list",logfile,metalog)		
 		metalog = "\n ************** Azure VM Create ******************* \n"
 		execute_command("azure vm create "+config['VM_NAME']+" "+config['IMAGE_NAME']+" "+config['USER_NAME']+" "+config['PASSWORD']+" -l " +config['LOCATION']+" -e ",logfile,metalog)
+		
+		metalog = "\n ************** Azure Windows VM Create ******************* \n"
+		execute_command("azure vm create "+config['VM_WIN_NAME']+" "+config['WIN_IMAGE_NAME']+" administrator "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,metalog)
+		
 		metalog = "\n ************** Azure VM Show ******************* \n"
 		execute_command("azure vm show "+config['VM_NAME'],logfile,metalog)
 		metalog = "\n ************** Azure VM Start ******************* \n"
@@ -147,6 +151,8 @@ if __name__ == "__main__":
 		execute_command("azure network vnet delete "+config['NETWORK_NAME'] + " --quiet ",logfile,metalog)
 		metalog = "\n ************** Azure VM Delete ******************* \n"
 		execute_command("azure vm delete "+config['VM_NAME'] + " -b --quiet ",logfile,metalog)
+		metalog = "\n ************** Azure Windows VM Delete ******************* \n"
+		execute_command("azure vm delete "+config['VM_WIN_NAME'] + " -b --quiet ",logfile,metalog)
 		metalog = "\n ************** Azure VM Image Delete ******************* \n"
 		execute_command("azure vm image delete "+config['VM_IMAGE_NAME'],logfile,metalog)
 		metalog = "\n ************** Azure VM Captured Image Delete ******************* \n"
@@ -218,6 +224,8 @@ if __name__ == "__main__":
 		execute_command_with_flag("azure vm list",logfile,config['VM_LIST_FLAG'],metalog)		
 		metalog = "\n ************** Azure VM Create ******************* \n"
 		execute_command_with_flag("azure vm create "+config['VM_NAME']+" "+config['IMAGE_NAME']+" "+config['USER_NAME']+" "+config['PASSWORD']+" -l " +config['LOCATION']+" -e ",logfile,config['VM_CREATE_FLAG'],metalog)
+		metalog = "\n ************** Azure Windows VM Create ******************* \n"
+		execute_command("azure vm create "+config['VM_WIN_NAME']+" "+config['WIN_IMAGE_NAME']+" administrator "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,config['VM_CREATE_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Show ******************* \n"
 		execute_command_with_flag("azure vm show "+config['VM_NAME'],logfile,config['VM__SHOW_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Start ******************* \n"
@@ -279,7 +287,8 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure Network Delete ******************* \n"
 		execute_command_with_flag("azure network vnet delete "+config['NETWORK_NAME'] + " --quiet ",logfile,config['NETWORK_DELETE_FLAG'],metalog)				
 		metalog = "\n ************** Azure VM Delete ******************* \n"
-		execute_command_with_flag("azure vm delete "+config['VM_NAME'] + " -b --quiet ",logfile,config['VM_DEL_FLAG'],metalog)
+		execute_command_with_flag("azure vm delete "+config['VM_NAME'] + " -b --quiet ",logfile,config['VM_DEL_FLAG'],metalog)metalog = "\n ************** Azure Windows VM Delete ******************* \n"
+		execute_command_with_flag("azure vm delete "+config['VM_WIN_NAME'] + " -b --quiet ",logfile,config['VM_DEL_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Image Delete ******************* \n"
 		execute_command_with_flag("azure vm image delete "+config['VM_IMAGE_NAME'],logfile,config['IMAGE_DEL_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Captured Image Delete ******************* \n"

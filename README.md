@@ -6,6 +6,10 @@
 	* FILE_PATH <\<path for the Json log file>>
 	* CERT_FILE <\<path for the .pem file>>
 	* SUBSCRIPTION_ID <\<Subscription id of azure account>>
+	* IMAGE_NAME <\<Valid linux Image name>>
+	* WIN_IMAGE_NAME <\<Valid windows Image name>>
+	* VM_COMM_IMAGE_NAME <\<Valid community Image name>>
+	* SUBSCRIPTION_ID <\<Subscription id of azure account>>
 * open cmd prompt and cd to proj folder(where AutomationScript.py and config.py are present)
 * run the script using following command "python AutomationScript.py"
 

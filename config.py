@@ -20,6 +20,7 @@ config = {
 
 #************** VM VARIABLES *****************
 "VM_NAME" : "OffshoreTestXplat",
+"VM_WIN_NAME" : "OffshoreTestWinXplat",
 "VM_VNET_NAME" : "OffshoreTestVNet",
 "VM_VNET_LABEL" : "Offshore_vnet_img_vm",
 "VM_SIZE_NAME" : "OffshoreTestSize",
@@ -29,7 +30,7 @@ config = {
 "IMAGE_NAME" :"Some Linux Image Name",
 "WIN_IMAGE_NAME" :"Some Windows Image Name",
 "VM_VNET_IMAGE_NAME" :"OffshoreTestImage002",
-"VM_COMM_IMAGE_NAME" :"vmdepot-2440-6-1",
+"VM_COMM_IMAGE_NAME" :"Some community image name",
 
 "USER_NAME" :"OffshoreTestUser",
 "PASSWORD" :"Pa$$word@123" ,
@@ -48,7 +49,7 @@ config = {
 "VM_IMAGE_NAME" : "OffshoreTestImage002",
 "VM_IMAGE_LABEL" : "OffshoreTestImage",
 "VM_IMAGE_DESC" : '"Test Offshore Image"',
-"VM_DISK_SOURCE_PATH" :"http://acsforsdk2.blob.core.windows.net/vhd-store/OffshoreTestXplat-d0f0d5b80477e5e9.vhd",
+"VM_DISK_SOURCE_PATH" :"disk path",
 "IMAGE_BLOB_URL" :"http://acsforsdk2.blob.core.windows.net/vm-images/OffshoreTestImage002.vhd" ,
 "TARGET_IMG_NAME" : "OffshoreTestImage003",
 
