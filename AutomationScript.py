@@ -84,6 +84,9 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure VM Create ******************* \n"
 		execute_command("azure vm create "+config['VM_NAME']+" "+config['IMAGE_NAME']+" "+config['USER_NAME']+" "+config['PASSWORD']+" -l " +config['LOCATION']+" -e ",logfile,metalog)
 		
+		metalog = "\n ************** Azure Disk List with VMName ************\n"
+		execute_command("azure vm disk list "+config['VM_NAME'],logfile,metalog)
+		
 		metalog = "\n ************** Azure Windows VM Create ******************* \n"
 		execute_command("azure vm create "+config['VM_WIN_NAME']+" "+config['WIN_IMAGE_NAME']+" administrator "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,metalog)
 		
@@ -224,6 +227,10 @@ if __name__ == "__main__":
 		execute_command_with_flag("azure vm list",logfile,config['VM_LIST_FLAG'],metalog)		
 		metalog = "\n ************** Azure VM Create ******************* \n"
 		execute_command_with_flag("azure vm create "+config['VM_NAME']+" "+config['IMAGE_NAME']+" "+config['USER_NAME']+" "+config['PASSWORD']+" -l " +config['LOCATION']+" -e ",logfile,config['VM_CREATE_FLAG'],metalog)
+		
+		metalog = "\n ************** Azure Disk List with VMName ************\n"
+		execute_command_with_flag("azure vm disk list "+config['VM_NAME'],logfile,config['DISK_LIST_VM_NAME_FLAG'],metalog)
+		
 		metalog = "\n ************** Azure Windows VM Create ******************* \n"
 		execute_command("azure vm create "+config['VM_WIN_NAME']+" "+config['WIN_IMAGE_NAME']+" administrator "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,config['VM_CREATE_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Show ******************* \n"
