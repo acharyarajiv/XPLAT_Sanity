@@ -153,6 +153,7 @@ config = {
 # DISK FLAGS
 
 "DISK_LIST_FLAG" : "1" ,
+"DISK_LIST_VM_NAME_FLAG" : "0",
 "DISK_CREATE_FLAG" : "1" ,
 "DISK_ATTCH_FLAG" : "1" ,
 "DISK_ATTCH_NEW_FLAG" : "1" ,
