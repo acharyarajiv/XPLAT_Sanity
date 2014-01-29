@@ -29,7 +29,7 @@ if __name__ == "__main__":
 	from config import config
 	logfile = create_file("" + config['LOG_FILE'] + "")
 	if(config['GLOBAL_FLAG'] == "1"):
-		logfile.write("************** Test Summary Report **************** \n" )
+		logfile.write("************** Test Summary Report **************** \n")
 		metalog = "************** NPM CACHE CLEAR **************** \n" 
 		execute_command("npm cache clear",logfile,metalog)		
 		metalog = "************** NPM AZURE INSTALL **************** \n" 
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 		execute_command("azure vm disk list "+config['VM_NAME'],logfile,metalog)
 		
 		metalog = "\n ************** Azure Windows VM Create ******************* \n"
-		execute_command("azure vm create "+config['VM_WIN_NAME']+" "+config['WIN_IMAGE_NAME']+" administrator "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,metalog)
+		execute_command("azure vm create "+config['VM_WIN_NAME']+" "+config['WIN_IMAGE_NAME']+" testuser "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,metalog)
 		
 		metalog = "\n ************** Azure VM Show ******************* \n"
 		execute_command("azure vm show "+config['VM_NAME'],logfile,metalog)
@@ -128,9 +128,9 @@ if __name__ == "__main__":
 		execute_command("azure vm capture "+config['VM_NAME']+" "+config['TARGET_IMG_NAME']+ " -t ",logfile,metalog)
 		
 		metalog = "\n ************** Azure Network Create ******************* \n"
-		execute_command("azure network vnet create "+config['NETWORK_NAME'] + " -l "+config['LOCATION'],logfile,metalog)
+		execute_command("azure network vnet create "+config['NETWORK_NAME'] + " -a "+config['AFFINITY_GRP_NAME'],logfile,metalog)
 		metalog = "\n ************** Azure VM Create_VNet ******************* \n"
-		execute_command("azure vm create " + config['VM_VNET_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ --virtual-network-name " + config['NETWORK_NAME'] + " -n vnet_img_vm --affinity-group affinity1",logfile,metalog)
+		execute_command("azure vm create " + config['VM_VNET_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ --virtual-network-name " + config['NETWORK_NAME'] + " -n vnet_img_vm --affinity-group "+config['AFFINITY_GRP_NAME'],logfile,metalog)
 		metalog = "\n ************** Azure VM Create_Size ******************* \n"
 		execute_command("azure vm create " + config['VM_SIZE_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ -z small -c -l "+config['LOCATION'],logfile,metalog)
 		metalog = "\n ************** Azure VM_VNet Delete ******************* \n"
@@ -173,9 +173,9 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure Account Clear ******************* \n"
 		execute_command("azure account clear",logfile,metalog)
 	if(config['GLOBAL_FLAG'] == "0"):
-		logfile.write("************** Test Summary Report **************** \n" )
+		logfile.write("************** Test Summary Report **************** \n")
 		metalog = "************** NPM CACHE CLEAR **************** \n" 
-		execute_command_with_flag("npm cache clear",logfile,config['NPM_CLEAR_FLAG'],metalog)		
+		execute_command_with_flag("npm cache clear",logfile,config['NPM_CLEAR_FLAG'],metalog)	
 		metalog = "************** NPM AZURE INSTALL **************** \n" 
 		execute_command_with_flag("npm install azure -g",logfile,config['NPM_INSTALL_FLAG'],metalog)		
 		metalog = "\n ************** Azure Help Command **************** \n"
@@ -232,7 +232,7 @@ if __name__ == "__main__":
 		execute_command_with_flag("azure vm disk list "+config['VM_NAME'],logfile,config['DISK_LIST_VM_NAME_FLAG'],metalog)
 		
 		metalog = "\n ************** Azure Windows VM Create ******************* \n"
-		execute_command("azure vm create "+config['VM_WIN_NAME']+" "+config['WIN_IMAGE_NAME']+" administrator "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,config['VM_CREATE_FLAG'],metalog)
+		execute_command_with_flag("azure vm create "+config['VM_WIN_NAME']+" "+config['WIN_IMAGE_NAME']+" testuser "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,config['VM_CREATE_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Show ******************* \n"
 		execute_command_with_flag("azure vm show "+config['VM_NAME'],logfile,config['VM__SHOW_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Start ******************* \n"
@@ -270,9 +270,9 @@ if __name__ == "__main__":
 		execute_command_with_flag("azure vm capture "+config['VM_NAME']+" "+config['TARGET_IMG_NAME']+ " -t ",logfile,config['VM_CAPTURE_FLAG'],metalog)
 		
 		metalog = "\n ************** Azure Network Create ******************* \n"
-		execute_command_with_flag("azure network vnet create "+config['NETWORK_NAME'] + " -l "+config['LOCATION'],logfile,config['NETWORK_CREATE_FLAG'],metalog)
+		execute_command_with_flag("azure network vnet create "+config['NETWORK_NAME'] + " -a "+config['AFFINITY_GRP_NAME'],logfile,config['NETWORK_CREATE_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Create_VNet ******************* \n"
-		execute_command_with_flag("azure vm create " + config['VM_VNET_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ --virtual-network-name " + config['NETWORK_NAME'] + " -n " + config['VM_VNET_LABEL'] + " --affinity-group affinity1",logfile,config['VM_VNET_CREATE_FLAG'],metalog)
+		execute_command_with_flag("azure vm create " + config['VM_VNET_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ --virtual-network-name " + config['NETWORK_NAME'] + " -n " + config['VM_VNET_LABEL'] + " --affinity-group "+config['AFFINITY_GRP_NAME'],logfile,config['VM_VNET_CREATE_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Create_Size ******************* \n"
 		execute_command_with_flag("azure vm create " + config['VM_SIZE_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ -z medium -c -l "+config['LOCATION'],logfile,config['VM_SIZE_CREATE_FLAG'],metalog)
 		metalog = "\n ************** Azure VM_VNet Delete ******************* \n"
@@ -294,7 +294,8 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure Network Delete ******************* \n"
 		execute_command_with_flag("azure network vnet delete "+config['NETWORK_NAME'] + " --quiet ",logfile,config['NETWORK_DELETE_FLAG'],metalog)				
 		metalog = "\n ************** Azure VM Delete ******************* \n"
-		execute_command_with_flag("azure vm delete "+config['VM_NAME'] + " -b --quiet ",logfile,config['VM_DEL_FLAG'],metalog)metalog = "\n ************** Azure Windows VM Delete ******************* \n"
+		execute_command_with_flag("azure vm delete "+config['VM_NAME'] + " -b --quiet ",logfile,config['VM_DEL_FLAG'],metalog)
+		metalog = "\n ************** Azure Windows VM Delete ******************* \n"
 		execute_command_with_flag("azure vm delete "+config['VM_WIN_NAME'] + " -b --quiet ",logfile,config['VM_DEL_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Image Delete ******************* \n"
 		execute_command_with_flag("azure vm image delete "+config['VM_IMAGE_NAME'],logfile,config['IMAGE_DEL_FLAG'],metalog)

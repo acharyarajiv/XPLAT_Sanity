@@ -1,33 +1,29 @@
 config = {
 
-"PUBLISHSETTINGS_FILE" : "D:\\Xplat_Phy\\Subs.publishsettings",
+"PUBLISHSETTINGS_FILE" : "PUBLISHSETTINGS_FILE",
 
 #************** ACCOUNT VARIABLES *****************
 
-"LOG_FILE" : "D:\\Xplat_Phy\\Test_Summary.log",
-
-"FILE_PATH" : "D:\\Xplat_Phy\\Role_Info.json",
-
-"CERT_FILE" : "D:\\Xplat_Phy\\File_Cert.pem",
+"LOG_FILE" : "LOG_FILE",
+"FILE_PATH" : "FILE_PATH",
+"CERT_FILE" : "CERT_FILE",
 
 #************** ACCOUNT VARIABLES *****************
 
-"SUBSCRIPTION_ID" : "db1ab6f0-4769-4b27-930e-01e2ef9c123c",
-
+"SUBSCRIPTION_ID" : "SUBSCRIPTION_ID",
 "CONFIG_KEY" : "Key",
-
 "CONFIG_VALUE" : "Value",
 
 #************** VM VARIABLES *****************
 "VM_NAME" : "OffshoreTestXplat",
-"VM_WIN_NAME" : "OffshoreTestWinXplat",
+"VM_WIN_NAME" : "OffshoreTestWin",
 "VM_VNET_NAME" : "OffshoreTestVNet",
 "VM_VNET_LABEL" : "Offshore_vnet_img_vm",
 "VM_SIZE_NAME" : "OffshoreTestSize",
 "VM_COMM_NAME" : "OffshoreTestComm",
 "VM_SSH_NAME" : "OffshoreTestSsh",
 
-"IMAGE_NAME" :"Some Linux Image Name",
+"IMAGE_NAME" :"OffshoreTestImage002",
 "WIN_IMAGE_NAME" :"Some Windows Image Name",
 "VM_VNET_IMAGE_NAME" :"OffshoreTestImage002",
 "VM_COMM_IMAGE_NAME" :"Some community image name",
@@ -36,12 +32,11 @@ config = {
 "PASSWORD" :"Pa$$word@123" ,
 "LOCATION":'"West US"',
 
-"VM_BLOB_URL":"http://acsforsdk2.blob.core.windows.net/disks/OffshoreTestVM002.vhd",
-
 #************** VM IMAGE VARIABLES *****************
 "AFFINITY_GRP_NAME":"OffshoreTestAffinGrp",
 "AFFINITY_GRP_LABEL":"OffshoreTestGrp",
 "AFFINITY_GRP_DESC":'"Test Offshore Affinity Group"',
+
 #************** VM NETWORK VARIABLES *****************
 "NETWORK_NAME":"offshoreTestNetwork",
 
@@ -49,8 +44,8 @@ config = {
 "VM_IMAGE_NAME" : "OffshoreTestImage002",
 "VM_IMAGE_LABEL" : "OffshoreTestImage",
 "VM_IMAGE_DESC" : '"Test Offshore Image"',
-"VM_DISK_SOURCE_PATH" :"some disk path",
-"IMAGE_BLOB_URL" :"http://acsforsdk2.blob.core.windows.net/vm-images/OffshoreTestImage002.vhd" ,
+"VM_DISK_SOURCE_PATH" :"VM_DISK_SOURCE_PATH",
+"IMAGE_BLOB_URL" : "IMAGE_BLOB_URL",		#http://StoragecontainerUrl/vm-images/somename.vhd"
 "TARGET_IMG_NAME" : "OffshoreTestImage003",
 
 #************** VM DISK IMAGE VARIABLES *****************
@@ -59,13 +54,13 @@ config = {
 "VM_DISK_LABEL" : "OffshoreTestDisk",
 "VM_DISK_NEW_LABEL" : "OffshoreTestDisk001",
 "VM_DISK_DESC" : '"Test Offshore Disk"',
-"DISK_IMAGE_BLOB_URL":"http://acsforsdk2.blob.core.windows.net/disks/OffshoreTestDiskImage002.vhd",
-"VM_DISK_ATTACH_BLOB_URL": "http://acsforsdk2.blob.core.windows.net/disks/OffshoreTestDiskImage003.vhd",
+"DISK_IMAGE_BLOB_URL": "DISK_IMAGE_BLOB_URL", 			#http://StoragecontainerUrl/disks/somename.vhd"
+"VM_DISK_ATTACH_BLOB_URL": "VM_DISK_ATTACH_BLOB_URL", 	#http://StoragecontainerUrl/disks/somename.vhd"
 
 #************** VM DISK UPLOAD VARIABLES *****************
-"DISK_UPLOAD_BLOB_URL":"http://acsforsdk2.blob.core.windows.net/disks/OffshoreTestDiskImage002.vhd",
-"DISK_UPLOAD_SOURCE_PATH" : "http://acsforsdk2.blob.core.windows.net/vm-images/OffshoreTestImage002.vhd",
-"STORAGE_ACCOUNT_KEY":"YW55IGNhcm5hbCBwbGVhc3VyZQ==",
+"DISK_UPLOAD_BLOB_URL": "DISK_UPLOAD_BLOB_URL",			#http://StoragecontainerUrl/disks/OffshoreTestDiskImage002.vhd",
+"DISK_UPLOAD_SOURCE_PATH" : "DISK_UPLOAD_SOURCE_PATH", 	#http://StoragecontainerUrl/vm-images/OffshoreTestImage002.vhd",
+"STORAGE_ACCOUNT_KEY": "STORAGE_ACCOUNT_KEY", 			#YW55IGNhcm5hbCBwbGVhc3VyZQ==
 
 #************** MULTIPLE ENDPOINT VALUES **************************
 "ONLYPP_PUBLICPORT":"3333",
@@ -99,69 +94,69 @@ config = {
 
 # ACCOUNT FLAGS 
 
-"AZURE_HELP_FLAG" : "1" ,
-"ACCOUNT_DWNLD_FLAG" : "1" ,
-"ACCOUNT_IMPRT_FLAG" : "1" ,
-"ACCOUNT_LIST_FLAG" : "1" ,
-"ACCOUNT_SET_FLAG" : "1" ,
-"ACCOUNT_AFF_GRP_FLAG" : "1" ,
-"ACCOUNT_AFF_GRP_CREATE_FLAG" : "1" ,
-"ACCOUNT_AFF_GRP_SHOW_FLAG" : "1" ,
-"ACCOUNT_STORAGE_LIST_FLAG" : "1" ,
-"ACCOUNT_CONFIG_LIST_FLAG" : "1" ,
-"ACCOUNT_CONFIG_SET_FLAG" : "1" ,
-"AZURE_SERV_LIST_FLAG" : "1" ,
-"AZURE_LOC_LIST_FLAG" : "1" ,
-"AZURE_SERVICE_DEL_FLAG" : "1" ,
-"ACCOUNT_CLEAR_FLAG" : "1" ,
+"AZURE_HELP_FLAG" : "0" ,
+"ACCOUNT_DWNLD_FLAG" : "0" ,
+"ACCOUNT_IMPRT_FLAG" : "0" ,
+"ACCOUNT_LIST_FLAG" : "0" ,
+"ACCOUNT_SET_FLAG" : "0" ,
+"ACCOUNT_AFF_GRP_FLAG" : "0" ,
+"ACCOUNT_AFF_GRP_CREATE_FLAG" : "0" ,
+"ACCOUNT_AFF_GRP_SHOW_FLAG" : "0" ,
+"ACCOUNT_STORAGE_LIST_FLAG" : "0" ,
+"ACCOUNT_CONFIG_LIST_FLAG" : "0" ,
+"ACCOUNT_CONFIG_SET_FLAG" : "0" ,
+"AZURE_SERV_LIST_FLAG" : "0" ,
+"AZURE_LOC_LIST_FLAG" : "0" ,
+"AZURE_SERVICE_DEL_FLAG" : "0" ,
+"ACCOUNT_CLEAR_FLAG" : "0" ,
 
 # VM FLAGS
 
-"VM_CREATE_FLAG" : "1" ,
-"VM_VNET_CREATE_FLAG" : "1" ,
-"VM_SIZE_CREATE_FLAG" : "1" ,
-"VM_COMM_IMG_CREATE_FLAG" : "1" ,
-"VM_SSH_FLAG" : "1" ,
-"VM_EXPORT_FLAG" : "1" ,
-"VM_CAPTURE_FLAG" : "1" ,
-"VM_CREATE_FROM_FLAG" : "1" ,
-"VM_LIST_FLAG" : "1" ,
-"VM__SHOW_FLAG" : "1" ,
-"VM_SHUTDWN_FLAG" : "1" ,
-"VM_START_FLAG" : "1" ,
-"VM_RESTART_FLAG" : "1" ,
-"VM_ENDPNT_CREATE_FLAG" : "1" ,
-"VM_ENDPNT_CREATE_MUL_FLAG" : "1" ,
-"VM_ENDPNT_SHOW_FLAG" : "1" ,
-"VM_ENDPNT_LIST_FLAG" : "1" ,
-"VM_ENDPNT_UPD_FLAG" : "1" ,
-"VM_ENDPNT_DEL_FLAG" : "1" ,
-"VM_DEL_FLAG" : "1" ,
-"VM_AFFINITY_DEL_FLAG" : "1" ,
-"VM_VNET_DEL_FLAG" : "1" ,
-"VM_SIZE_DEL_FLAG" : "1" ,
-"VM_COMM_DEL_FLAG" : "1" ,
-"VM_SSH_DEL_FLAG" : "1" ,
+"VM_CREATE_FLAG" : "0" ,
+"VM_VNET_CREATE_FLAG" : "0" ,
+"VM_SIZE_CREATE_FLAG" : "0" ,
+"VM_COMM_IMG_CREATE_FLAG" : "0" ,
+"VM_SSH_FLAG" : "0" ,
+"VM_EXPORT_FLAG" : "0" ,
+"VM_CAPTURE_FLAG" : "0" ,
+"VM_CREATE_FROM_FLAG" : "0" ,
+"VM_LIST_FLAG" : "0" ,
+"VM__SHOW_FLAG" : "0" ,
+"VM_SHUTDWN_FLAG" : "0" ,
+"VM_START_FLAG" : "0" ,
+"VM_RESTART_FLAG" : "0" ,
+"VM_ENDPNT_CREATE_FLAG" : "0" ,
+"VM_ENDPNT_CREATE_MUL_FLAG" : "0" ,
+"VM_ENDPNT_SHOW_FLAG" : "0" ,
+"VM_ENDPNT_LIST_FLAG" : "0" ,
+"VM_ENDPNT_UPD_FLAG" : "0" ,
+"VM_ENDPNT_DEL_FLAG" : "0" ,
+"VM_DEL_FLAG" : "0" ,
+"VM_AFFINITY_DEL_FLAG" : "0" ,
+"VM_VNET_DEL_FLAG" : "0" ,
+"VM_SIZE_DEL_FLAG" : "0" ,
+"VM_COMM_DEL_FLAG" : "0" ,
+"VM_SSH_DEL_FLAG" : "0" ,
 
 # IMAGE FLAGS
 
-"IMAGE_CREATE_FLAG" : "1" ,
-"IMAGE_LIST_FLAG" : "1" ,
-"IMAGE_SHOW_FLAG" : "1" ,
-"IMAGE_DEL_FLAG" : "1" ,
+"IMAGE_CREATE_FLAG" : "0" ,
+"IMAGE_LIST_FLAG" : "0" ,
+"IMAGE_SHOW_FLAG" : "0" ,
+"IMAGE_DEL_FLAG" : "0" ,
 
 # DISK FLAGS
 
-"DISK_LIST_FLAG" : "1" ,
+"DISK_LIST_FLAG" : "0" ,
 "DISK_LIST_VM_NAME_FLAG" : "0",
-"DISK_CREATE_FLAG" : "1" ,
-"DISK_ATTCH_FLAG" : "1" ,
-"DISK_ATTCH_NEW_FLAG" : "1" ,
-"DISK_DETACH_FLAG" : "1" ,
-"DISK_SHOW_FLAG" : "1" ,
-"DISK_UPLOAD_FLAG" : "1 " ,
-"NETWORK_CREATE_FLAG" : "1" ,
-"NETWORK_DELETE_FLAG" : "1" ,
-"DISK_DEL_FLAG" : "1" ,
+"DISK_CREATE_FLAG" : "0" ,
+"DISK_ATTCH_FLAG" : "0" ,
+"DISK_ATTCH_NEW_FLAG" : "0" ,
+"DISK_DETACH_FLAG" : "0" ,
+"DISK_SHOW_FLAG" : "0" ,
+"DISK_UPLOAD_FLAG" : "0" ,
+"NETWORK_CREATE_FLAG" : "0" ,
+"NETWORK_DELETE_FLAG" : "0" ,
+"DISK_DEL_FLAG" : "0" ,
 
 }
