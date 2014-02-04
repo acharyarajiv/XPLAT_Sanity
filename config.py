@@ -4,9 +4,10 @@ config = {
 
 #************** ACCOUNT VARIABLES *****************
 
-"LOG_FILE" : "LOG_FILE",
-"FILE_PATH" : "FILE_PATH",
-"CERT_FILE" : "CERT_FILE",
+"LOG_FILE" : "LOG_FILE.txt",
+"FILE_PATH" : "FILE_PATH.json",
+"CERT_FILE" : "CERT_FILE.pem",
+"CUSTOM_DATA_FILE" : "CustomDataFile",
 
 #************** ACCOUNT VARIABLES *****************
 
@@ -22,6 +23,7 @@ config = {
 "VM_SIZE_NAME" : "OffshoreTestSize",
 "VM_COMM_NAME" : "OffshoreTestComm",
 "VM_SSH_NAME" : "OffshoreTestSsh",
+"VM_CUSTOMDATA_NAME" : "OffshoreTestCustomdata".
 
 "IMAGE_NAME" :"OffshoreTestImage002",
 "WIN_IMAGE_NAME" :"Some Windows Image Name",
@@ -115,6 +117,7 @@ config = {
 "VM_CREATE_FLAG" : "0" ,
 "VM_VNET_CREATE_FLAG" : "0" ,
 "VM_SIZE_CREATE_FLAG" : "0" ,
+"VM_CUSTOMDATA_CREATE_FLAG" : "0" ,
 "VM_COMM_IMG_CREATE_FLAG" : "0" ,
 "VM_SSH_FLAG" : "0" ,
 "VM_EXPORT_FLAG" : "0" ,
@@ -135,6 +138,7 @@ config = {
 "VM_AFFINITY_DEL_FLAG" : "0" ,
 "VM_VNET_DEL_FLAG" : "0" ,
 "VM_SIZE_DEL_FLAG" : "0" ,
+"VM_CUSTOMDATA_DEL_FLAG" : "0" ,
 "VM_COMM_DEL_FLAG" : "0" ,
 "VM_SSH_DEL_FLAG" : "0" ,
 
