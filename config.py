@@ -17,47 +17,47 @@ config = {
 
 #************** VM VARIABLES *****************
 "VM_NAME" : "OffshoreTestXplat",
-"VM_WIN_NAME" : "OffshoreTestWin",
-"VM_VNET_NAME" : "OffshoreTestVNet",
-"VM_VNET_LABEL" : "Offshore_vnet_img_vm",
-"VM_SIZE_NAME" : "OffshoreTestSize",
-"VM_COMM_NAME" : "OffshoreTestComm",
-"VM_SSH_NAME" : "OffshoreTestSsh",
-"VM_CUSTOMDATA_NAME" : "OffshoreTestCustomdata".
+"VM_WIN_NAME" : "OffshoreTestXplatWin",
+"VM_VNET_NAME" : "OffshoreTestXplatVNet",
+"VM_VNET_LABEL" : "Offshore_Xplat_vnet_img_vm",
+"VM_SIZE_NAME" : "OffshoreTestXplatSize",
+"VM_COMM_NAME" : "OffshoreTestXplatComm",
+"VM_SSH_NAME" : "OffshoreTestXplatSsh",
+"VM_CUSTOMDATA_NAME" : "OffshoreTestXplatCustomdata",
 
-"IMAGE_NAME" :"OffshoreTestImage002",
-"WIN_IMAGE_NAME" :"Some Windows Image Name",
-"VM_VNET_IMAGE_NAME" :"OffshoreTestImage002",
+"IMAGE_NAME" :"OffshoreTestXplatImage002",
+"WIN_IMAGE_NAME" :"Some Windows Image Name", #diskname is obtained from vm disk list and choose the one with windows
+"VM_VNET_IMAGE_NAME" :"OffshoreTestXplatImage002",
 "VM_COMM_IMAGE_NAME" :"Some community image name",
 
-"USER_NAME" :"OffshoreTestUser",
+"USER_NAME" :"XplatTestUser",
 "PASSWORD" :"Pa$$word@123" ,
 "LOCATION":'"West US"',
 
 #************** VM IMAGE VARIABLES *****************
-"AFFINITY_GRP_NAME":"OffshoreTestAffinGrp",
-"AFFINITY_GRP_LABEL":"OffshoreTestGrp",
+"AFFINITY_GRP_NAME":"OffshoreTestXplatAffinGrp",
+"AFFINITY_GRP_LABEL":"OffshoreTestXplatGrp",
 "AFFINITY_GRP_DESC":'"Test Offshore Affinity Group"',
 
 #************** VM NETWORK VARIABLES *****************
-"NETWORK_NAME":"offshoreTestNetwork",
+"NETWORK_NAME":"offshoreTestXplatNetwork",
 
 #************** VM IMAGE VARIABLES *****************
-"VM_IMAGE_NAME" : "OffshoreTestImage002",
-"VM_IMAGE_LABEL" : "OffshoreTestImage",
+"VM_IMAGE_NAME" : "OffshoreTestXplatImage002",
+"VM_IMAGE_LABEL" : "OffshoreTestXplatImage",
 "VM_IMAGE_DESC" : '"Test Offshore Image"',
-"VM_DISK_SOURCE_PATH" :"VM_DISK_SOURCE_PATH",
-"IMAGE_BLOB_URL" : "IMAGE_BLOB_URL",		#http://StoragecontainerUrl/vm-images/somename.vhd"
-"TARGET_IMG_NAME" : "OffshoreTestImage003",
+"VM_DISK_SOURCE_PATH" :"VM_DISK_SOURCE_PATH", #mediauri obtained from vm disk show diskname(diskname is obtained from vm disk list and choose the one with windows)
+"IMAGE_BLOB_URL" : "IMAGE_BLOB_URL",		#http://StoragecontainerUrl/vm-images/OffshoreXplatTestImage002"
+"TARGET_IMG_NAME" : "OffshoreTestXplatImage003",
 
 #************** VM DISK IMAGE VARIABLES *****************
-"VM_DISK_IMAGE_NAME" :"OffshoreTestDiskImage002",
-"VM_DISK_NEW_IMAGE_NAME" :"OffshoreTestDiskImage003",
-"VM_DISK_LABEL" : "OffshoreTestDisk",
-"VM_DISK_NEW_LABEL" : "OffshoreTestDisk001",
+"VM_DISK_IMAGE_NAME" :"OffshoreTestXplatDiskImage002",
+"VM_DISK_NEW_IMAGE_NAME" :"OffshoreTestXplatDiskImage003",
+"VM_DISK_LABEL" : "OffshoreTestXplatDisk",
+"VM_DISK_NEW_LABEL" : "OffshoreTestXplatDisk001",
 "VM_DISK_DESC" : '"Test Offshore Disk"',
-"DISK_IMAGE_BLOB_URL": "DISK_IMAGE_BLOB_URL", 			#http://StoragecontainerUrl/disks/somename.vhd"
-"VM_DISK_ATTACH_BLOB_URL": "VM_DISK_ATTACH_BLOB_URL", 	#http://StoragecontainerUrl/disks/somename.vhd"
+"DISK_IMAGE_BLOB_URL": "DISK_IMAGE_BLOB_URL", 			#http://StoragecontainerUrl/disks/OffshoreXplatTestDisk"
+"VM_DISK_ATTACH_BLOB_URL": "VM_DISK_ATTACH_BLOB_URL", 	#http://StoragecontainerUrl/disks/disknewupload.vhd"
 
 #************** VM DISK UPLOAD VARIABLES *****************
 "DISK_UPLOAD_BLOB_URL": "DISK_UPLOAD_BLOB_URL",			#http://StoragecontainerUrl/disks/OffshoreTestDiskImage002.vhd",
