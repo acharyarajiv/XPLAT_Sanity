@@ -10,11 +10,11 @@ def create_file(path):
 
 def execute_command_with_flag(cmd,logfile,flag,metalog):
 	if(flag == "1"):
-			p1 = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-			logfile.write(metalog)
-			for line in p1.stdout.readlines():
-				logfile.write(line)
-			p1.wait()
+		p1 = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+		logfile.write(metalog)
+		for line in p1.stdout.readlines():
+			logfile.write(line)
+		p1.wait()
 
 
 def execute_command(cmd,logfile,metalog):
@@ -142,8 +142,10 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure VM_CUSTOM_DATA Delete ******************* \n"
 		execute_command_with_flag("azure vm delete "+config['VM_CUSTOMDATA_NAME'] + " -b --quiet ",logfile,metalog)
 		
+		metalog = "\n ************** Azure Service Delete ******************* \n"
+		execute_command("azure service delete "+config['VM_NAME'] + " --quiet ",logfile,metalog)
 		metalog = "\n ************** Azure VM Create-from ******************* \n"
-		execute_command("azure vm create-from "+config['VM_NAME']+" "+config['FILE_PATH'],logfile,metalog)
+		execute_command("azure vm create-from "+config['VM_NAME']+" "+config['FILE_PATH'] + "-l " +config['LOCATION'],logfile,metalog)
 		metalog = "\n ************** Azure VM Community Image Create ******************* \n"
 		execute_command("azure vm create " + config['VM_COMM_NAME'] + " -o "+config['VM_COMM_IMAGE_NAME']+" -l "+config['LOCATION']+" communityUser PassW0rd$",logfile,metalog)
 		metalog = "\n ************** Azure VM SSHCert Create ******************* \n"
@@ -166,8 +168,6 @@ if __name__ == "__main__":
 		execute_command("azure vm image delete "+config['TARGET_IMG_NAME'],logfile,metalog)
 		metalog = "\n ************** Azure VM Disk Delete ******************* \n"
 		execute_command("azure vm disk delete "+config['VM_DISK_IMAGE_NAME'],logfile,metalog)
-		metalog = "\n ************** Azure Service Delete ******************* \n"
-		execute_command("azure service delete "+config['VM_NAME'] + " --quiet ",logfile,metalog)
 		metalog = "\n ************** Azure Affinity Group Delete ******************* \n"
 		execute_command("azure account affinity-group delete "+config['AFFINITY_GRP_NAME'] + " --quiet ",logfile,metalog)
 		
@@ -175,7 +175,7 @@ if __name__ == "__main__":
 		execute_command("azure vm disk upload "+config['DISK_UPLOAD_SOURCE_PATH']+" "+config['DISK_UPLOAD_BLOB_URL']+" "+config['STORAGE_ACCOUNT_KEY'],logfile,metalog)		
 	
 		metalog = "\n ************** Azure Account Clear ******************* \n"
-		execute_command("azure account clear",logfile,metalog)
+		execute_command("azure account clear --quiet",logfile,metalog)
 	if(config['GLOBAL_FLAG'] == "0"):
 		logfile.write("************** Test Summary Report **************** \n")
 		metalog = "************** NPM CACHE CLEAR **************** \n" 
@@ -288,8 +288,10 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure VM_CUSTOM_DATA Delete ******************* \n"
 		execute_command_with_flag("azure vm delete "+config['VM_CUSTOMDATA_NAME'] + " -b --quiet ",logfile,config['VM_CUSTOMDATA_DEL_FLAG'],metalog)
 		
+		metalog = "\n ************** Azure Service Delete ******************* \n"
+		execute_command_with_flag("azure service delete "+config['VM_NAME'] + " --quiet ",logfile,config['AZURE_SERVICE_DEL_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Create-from ******************* \n"
-		execute_command_with_flag("azure vm create-from "+config['VM_NAME']+" "+config['FILE_PATH'],logfile,config['VM_CREATE_FROM_FLAG'],metalog)
+		execute_command_with_flag("azure vm create-from "+config['VM_NAME']+" "+config['FILE_PATH'] + "-l " +config['LOCATION'],logfile,config['VM_CREATE_FROM_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Community Image Create ******************* \n"
 		execute_command_with_flag("azure vm create " + config['VM_COMM_NAME'] + " -o "+config['VM_COMM_IMAGE_NAME']+" -l "+config['LOCATION']+" communityUser PassW0rd$",logfile,config['VM_COMM_IMG_CREATE_FLAG'],metalog)
 		metalog = "\n ************** Azure VM SSHCert Create ******************* \n"
@@ -311,8 +313,6 @@ if __name__ == "__main__":
 		execute_command_with_flag("azure vm image delete "+config['TARGET_IMG_NAME'],logfile,config['VM_CAPTURE_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Disk Delete ******************* \n"
 		execute_command_with_flag("azure vm disk delete "+config['VM_DISK_IMAGE_NAME'],logfile,config['DISK_DEL_FLAG'],metalog)
-		metalog = "\n ************** Azure Service Delete ******************* \n"
-		execute_command_with_flag("azure service delete "+config['VM_NAME'] + " --quiet ",logfile,config['AZURE_SERVICE_DEL_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Affinity Group Delete ******************* \n"
 		execute_command_with_flag("azure account affinity-group delete "+config['AFFINITY_GRP_NAME'] + " --quiet ",logfile,config['VM_AFFINITY_DEL_FLAG'],metalog)
 		
@@ -320,17 +320,7 @@ if __name__ == "__main__":
 		execute_command_with_flag("azure vm disk upload "+config['DISK_UPLOAD_SOURCE_PATH']+" "+config['DISK_UPLOAD_BLOB_URL']+" "+config['STORAGE_ACCOUNT_KEY'],logfile,config['DISK_UPLOAD_FLAG'],metalog)		
 	
 		metalog = "\n ************** Azure Account Clear ******************* \n"
-		execute_command_with_flag("azure account clear",logfile,config['ACCOUNT_CLEAR_FLAG'],metalog)
-	
-
-
-
-
-
-
-
-
-
+		execute_command_with_flag("azure account clear --quiet",logfile,config['ACCOUNT_CLEAR_FLAG'],metalog)
 
 
 
