@@ -17,7 +17,7 @@ config = {
 
 #************** VM VARIABLES *****************
 "VM_NAME" : "OffshoreTestXplat",
-"VM_WIN_NAME" : "OffshoreTestXplatWin",
+"VM_WIN_NAME" : "TestXplatWin",
 "VM_VNET_NAME" : "OffshoreTestXplatVNet",
 "VM_VNET_LABEL" : "Offshore_Xplat_vnet_img_vm",
 "VM_SIZE_NAME" : "OffshoreTestXplatSize",
