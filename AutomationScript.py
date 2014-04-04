@@ -145,7 +145,7 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure Service Delete ******************* \n"
 		execute_command("azure service delete "+config['VM_NAME'] + " --quiet ",logfile,metalog)
 		metalog = "\n ************** Azure VM Create-from ******************* \n"
-		execute_command("azure vm create-from "+config['VM_NAME']+" "+config['FILE_PATH'] + "-l " +config['LOCATION'],logfile,metalog)
+		execute_command("azure vm create-from "+config['VM_NAME']+" "+config['FILE_PATH'] + " -l " +config['LOCATION'],logfile,metalog)
 		metalog = "\n ************** Azure VM Community Image Create ******************* \n"
 		execute_command("azure vm create " + config['VM_COMM_NAME'] + " -o "+config['VM_COMM_IMAGE_NAME']+" -l "+config['LOCATION']+" communityUser PassW0rd$",logfile,metalog)
 		metalog = "\n ************** Azure VM SSHCert Create ******************* \n"
@@ -291,7 +291,7 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure Service Delete ******************* \n"
 		execute_command_with_flag("azure service delete "+config['VM_NAME'] + " --quiet ",logfile,config['AZURE_SERVICE_DEL_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Create-from ******************* \n"
-		execute_command_with_flag("azure vm create-from "+config['VM_NAME']+" "+config['FILE_PATH'] + "-l " +config['LOCATION'],logfile,config['VM_CREATE_FROM_FLAG'],metalog)
+		execute_command_with_flag("azure vm create-from "+config['VM_NAME']+" "+config['FILE_PATH'] + " -l " +config['LOCATION'],logfile,config['VM_CREATE_FROM_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Community Image Create ******************* \n"
 		execute_command_with_flag("azure vm create " + config['VM_COMM_NAME'] + " -o "+config['VM_COMM_IMAGE_NAME']+" -l "+config['LOCATION']+" communityUser PassW0rd$",logfile,config['VM_COMM_IMG_CREATE_FLAG'],metalog)
 		metalog = "\n ************** Azure VM SSHCert Create ******************* \n"
