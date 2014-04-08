@@ -162,6 +162,10 @@ if __name__ == "__main__":
 		execute_command("azure vm delete "+config['VM_NAME'] + " -b --quiet ",logfile,metalog)
 		metalog = "\n ************** Azure Windows VM Delete ******************* \n"
 		execute_command("azure vm delete "+config['VM_WIN_NAME'] + " -b --quiet ",logfile,metalog)
+		
+		metalog = "\n ************** Azure VM Disk Upload ******************* \n"
+		execute_command("azure vm disk upload "+config['DISK_UPLOAD_SOURCE_PATH']+" "+config['DISK_UPLOAD_BLOB_URL']+" "+config['STORAGE_ACCOUNT_KEY'],logfile,metalog)		
+	
 		metalog = "\n ************** Azure VM Image Delete ******************* \n"
 		execute_command("azure vm image delete "+config['VM_IMAGE_NAME'],logfile,metalog)
 		metalog = "\n ************** Azure VM Captured Image Delete ******************* \n"
@@ -171,9 +175,6 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure Affinity Group Delete ******************* \n"
 		execute_command("azure account affinity-group delete "+config['AFFINITY_GRP_NAME'] + " --quiet ",logfile,metalog)
 		
-		metalog = "\n ************** Azure VM Disk Upload ******************* \n"
-		execute_command("azure vm disk upload "+config['DISK_UPLOAD_SOURCE_PATH']+" "+config['DISK_UPLOAD_BLOB_URL']+" "+config['STORAGE_ACCOUNT_KEY'],logfile,metalog)		
-	
 		metalog = "\n ************** Azure Account Clear ******************* \n"
 		execute_command("azure account clear --quiet",logfile,metalog)
 	if(config['GLOBAL_FLAG'] == "0"):
@@ -307,6 +308,10 @@ if __name__ == "__main__":
 		execute_command_with_flag("azure vm delete "+config['VM_NAME'] + " -b --quiet ",logfile,config['VM_DEL_FLAG'],metalog)
 		metalog = "\n ************** Azure Windows VM Delete ******************* \n"
 		execute_command_with_flag("azure vm delete "+config['VM_WIN_NAME'] + " -b --quiet ",logfile,config['VM_DEL_FLAG'],metalog)
+		
+		metalog = "\n ************** Azure VM Disk Upload ******************* \n"
+		execute_command_with_flag("azure vm disk upload "+config['DISK_UPLOAD_SOURCE_PATH']+" "+config['DISK_UPLOAD_BLOB_URL']+" "+config['STORAGE_ACCOUNT_KEY'],logfile,config['DISK_UPLOAD_FLAG'],metalog)		
+	
 		metalog = "\n ************** Azure VM Image Delete ******************* \n"
 		execute_command_with_flag("azure vm image delete "+config['VM_IMAGE_NAME'],logfile,config['IMAGE_DEL_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Captured Image Delete ******************* \n"
@@ -316,9 +321,6 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure VM Affinity Group Delete ******************* \n"
 		execute_command_with_flag("azure account affinity-group delete "+config['AFFINITY_GRP_NAME'] + " --quiet ",logfile,config['VM_AFFINITY_DEL_FLAG'],metalog)
 		
-		metalog = "\n ************** Azure VM Disk Upload ******************* \n"
-		execute_command_with_flag("azure vm disk upload "+config['DISK_UPLOAD_SOURCE_PATH']+" "+config['DISK_UPLOAD_BLOB_URL']+" "+config['STORAGE_ACCOUNT_KEY'],logfile,config['DISK_UPLOAD_FLAG'],metalog)		
-	
 		metalog = "\n ************** Azure Account Clear ******************* \n"
 		execute_command_with_flag("azure account clear --quiet",logfile,config['ACCOUNT_CLEAR_FLAG'],metalog)
 
