@@ -26,7 +26,7 @@ config = {
 "VM_CUSTOMDATA_NAME" : "OffshoreTestXplatCustomdata",
 
 "IMAGE_NAME" :"OffshoreTestXplatImage002",
-"WIN_IMAGE_NAME" :"Some Windows Image Name", #diskname is obtained from vm disk list and choose the one with windows
+"WIN_IMAGE_NAME" :"Some Windows Image Name", #diskname is obtained from vm image list and choose the one with windows
 "VM_VNET_IMAGE_NAME" :"OffshoreTestXplatImage002",
 "VM_COMM_IMAGE_NAME" :"Some community image name", #browse http://vmdepot.msopentech.com/ select a vm anc click on deployment button
 
