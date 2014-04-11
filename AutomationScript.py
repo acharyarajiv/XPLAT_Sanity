@@ -127,8 +127,12 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure VM Capture ******************* \n"
 		execute_command("azure vm capture "+config['VM_NAME']+" "+config['TARGET_IMG_NAME']+ " -t ",logfile,metalog)
 		
+		metalog = "\n ************** Azure Network List ******************* \n"
+		execute_command("azure network vnet list",logfile,metalog)
 		metalog = "\n ************** Azure Network Create ******************* \n"
 		execute_command("azure network vnet create "+config['NETWORK_NAME'] + " -a "+config['AFFINITY_GRP_NAME'],logfile,metalog)
+		metalog = "\n ************** Azure Network Show ******************* \n"
+		execute_command("azure network vnet show "+config['NETWORK_NAME'],logfile,metalog)
 		metalog = "\n ************** Azure VM Create_VNet ******************* \n"
 		execute_command("azure vm create " + config['VM_VNET_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ --virtual-network-name " + config['NETWORK_NAME'] + " -n vnet_img_vm --affinity-group "+config['AFFINITY_GRP_NAME'],logfile,metalog)
 		metalog = "\n ************** Azure VM Create_Size ******************* \n"
@@ -274,8 +278,12 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure VM Capture ******************* \n"
 		execute_command_with_flag("azure vm capture "+config['VM_NAME']+" "+config['TARGET_IMG_NAME']+ " -t ",logfile,config['VM_CAPTURE_FLAG'],metalog)
 		
+		metalog = "\n ************** Azure Network List ******************* \n"
+		execute_command_with_flag("azure network vnet list",logfile,config['NETWORK_CREATE_FLAG'],metalog)
 		metalog = "\n ************** Azure Network Create ******************* \n"
 		execute_command_with_flag("azure network vnet create "+config['NETWORK_NAME'] + " -a "+config['AFFINITY_GRP_NAME'],logfile,config['NETWORK_CREATE_FLAG'],metalog)
+		metalog = "\n ************** Azure Network Show ******************* \n"
+		execute_command_with_flag("azure network vnet show "+config['NETWORK_NAME'],logfile,config['NETWORK_CREATE_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Create_VNet ******************* \n"
 		execute_command_with_flag("azure vm create " + config['VM_VNET_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ --virtual-network-name " + config['NETWORK_NAME'] + " -n " + config['VM_VNET_LABEL'] + " --affinity-group "+config['AFFINITY_GRP_NAME'],logfile,config['VM_VNET_CREATE_FLAG'],metalog)
 		metalog = "\n ************** Azure VM Create_Size ******************* \n"
