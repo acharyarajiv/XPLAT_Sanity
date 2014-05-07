@@ -138,13 +138,13 @@ if __name__ == "__main__":
 		metalog = "\n ************** Azure VM Create_Size ******************* \n"
 		execute_command("azure vm create " + config['VM_SIZE_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ -z small -c -l "+config['LOCATION'],logfile,metalog)
 		metalog = "\n ************** Azure create VM_CUSTOM_DATA ******************* \n"
-		execute_command_with_flag("azure vm create -d " + config['CUSTOM_DATA_FILE'] + " " + config['VM_CUSTOMDATA_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ -l "+config['LOCATION'],logfile,metalog)
+		execute_command("azure vm create -d " + config['CUSTOM_DATA_FILE'] + " " + config['VM_CUSTOMDATA_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ -l "+config['LOCATION'],logfile,metalog)
 		metalog = "\n ************** Azure VM_VNet Delete ******************* \n"
 		execute_command("azure vm delete "+config['VM_VNET_NAME'] + " -b --quiet ",logfile,metalog)
 		metalog = "\n ************** Azure VM_SIZE Delete ******************* \n"
 		execute_command("azure vm delete "+config['VM_SIZE_NAME'] + " -b --quiet ",logfile,metalog)
 		metalog = "\n ************** Azure VM_CUSTOM_DATA Delete ******************* \n"
-		execute_command_with_flag("azure vm delete "+config['VM_CUSTOMDATA_NAME'] + " -b --quiet ",logfile,metalog)
+		execute_command("azure vm delete "+config['VM_CUSTOMDATA_NAME'] + " -b --quiet ",logfile,metalog)
 		
 		metalog = "\n ************** Azure Service Delete ******************* \n"
 		execute_command("azure service delete "+config['VM_NAME'] + " --quiet ",logfile,metalog)
