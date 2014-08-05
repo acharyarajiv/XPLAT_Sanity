@@ -16,6 +16,11 @@ config = {
 "CONFIG_KEY" : "Key",
 "CONFIG_VALUE" : "Value",
 
+#************** StaticIP VARIABLES *****************
+"STATICIP_VM_NAME" : "XplatVMStatic",
+"DOCKER_STATIC_VM_NAME" : "XplatDockVMStat",
+"STATIC_IP_TO_CREATE" : "10.0.0.7",
+"STATIC_IP_TO_SET" : "10.0.0.8",
 #************** VM VARIABLES *****************
 "VM_NAME" : "XplatTestVM",
 #"VM_NAME" : "OffshoreTest",
@@ -31,7 +36,7 @@ config = {
 "LOGINUSER" : "LOGINUSER",
 "LOGINPASSWORD" : "LOGINPASSWORD",
 
-"IMAGE_NAME" :"XplatTestImage",
+"IMAGE_NAME" :"jencustvhd",
 "WIN_IMAGE_NAME" :"Some Windows Image Name", #diskname is obtained from vm image list and choose the one with windows
 "VM_VNET_IMAGE_NAME" :"XplatTestImage",
 "VM_COMM_IMAGE_NAME" :"Some community image name", #browse http://vmdepot.msopentech.com/ select a vm anc click on deployment button
@@ -94,8 +99,8 @@ config = {
 
 #************** FLAG VALUES **************************
 
-"GLOBAL_FLAG" : "1",
-"AD_Login" : "1",
+"GLOBAL_FLAG" : "0",
+"AD_Login" : "0",
 
 # NPM FLAGS
 
@@ -118,7 +123,10 @@ config = {
 "AZURE_LOC_LIST_FLAG" : "0" ,
 "AZURE_SERVICE_DEL_FLAG" : "0" ,
 "ACCOUNT_CLEAR_FLAG" : "0" ,
-"AZURE_LOGIN_FLAG" : "1",
+"AZURE_LOGIN_FLAG" : "0",
+
+#STATICIP FLAGS
+"VM_STATICIP_CREATE_FLAG":"1",
 # VM FLAGS
 
 "VM_CREATE_FLAG" : "0" ,
@@ -152,7 +160,7 @@ config = {
 # IMAGE FLAGS
 
 "IMAGE_CREATE_FLAG" : "0" ,
-"IMAGE_LIST_FLAG" : "1" ,
+"IMAGE_LIST_FLAG" : "0" ,
 "IMAGE_SHOW_FLAG" : "0" ,
 "IMAGE_DEL_FLAG" : "0" ,
 
