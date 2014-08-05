@@ -137,6 +137,7 @@ if __name__ == "__main__":
 		metalog = "************** Azure Windows VM Create ******************* \t"
 		execute_command("azure vm create "+config['VM_WIN_NAME']+" "+config['WIN_IMAGE_NAME']+" testuser "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,metalog)
 
+		
 		metalog = "************** Azure VM Show ******************* \t"
 		execute_command("azure vm show "+config['VM_NAME'],logfile,metalog)
 		metalog = "************** Azure VM Start ******************* \t"
@@ -186,6 +187,22 @@ if __name__ == "__main__":
 		execute_command("azure vm create " + config['VM_SIZE_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ -z small -c -l "+config['LOCATION'],logfile,metalog)
 		metalog = "************** Azure create VM_CUSTOM_DATA ******************* \t"
 		execute_command("azure vm create -d " + config['CUSTOM_DATA_FILE'] + " " + config['VM_CUSTOMDATA_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ -l "+config['LOCATION'],logfile,metalog)
+		
+		metalog = "************** Azure static-ip VM Create******************* \t"
+		execute_command("azure vm create "+config['STATICIP_VM_NAME']+" "+config['IMAGE_NAME']+" communityUser PassW0rd$ "+" --virtual-network-name "+config['NETWORK_NAME'] + " " + "--affinity-group" +  " " + config['AFFINITY_GRP_NAME'] + " " + " --static-ip "+ " " + config['STATIC_IP_TO_CREATE'],logfile,metalog)
+		metalog = "************** Azure static-ip Set ******************* \t"
+		execute_command("azure vm static-ip set "+ config['STATICIP_VM_NAME'] +" "+ config['STATIC_IP_TO_SET'],logfile,metalog)
+		metalog = "************** Azure static-ip Check ******************* \t"
+		execute_command("azure network vnet static-ip check "+config['NETWORK_NAME'] + " " + config['STATIC_IP_TO_SET'],logfile,metalog)
+		metalog = "************** Azure static-ip Remove ******************* \t"
+		execute_command("azure vm static-ip remove "+config['STATICIP_VM_NAME'],logfile,metalog)
+		metalog = "************** Azure static-ip VM Restart ******************* \t"
+		execute_command("azure vm restart "+config['STATICIP_VM_NAME'],logfile,metalog)
+		metalog = "************** Azure static-ip VM Delete ******************* \t"
+ 		execute_command("azure vm delete "+config['STATICIP_VM_NAME'] + " -b --quiet ",logfile,metalog)
+		metalog = "************** Azure static-ip Docker VM Delete ******************* \t"
+		execute_command("azure vm delete "+config['DOCKER_STATIC_VM_NAME'] + " -b --quiet ",logfile,metalog)
+		
 		metalog = "************** Azure VM_VNet Delete ******************* \t"
 		execute_command("azure vm delete "+config['VM_VNET_NAME'] + " -b --quiet ",logfile,metalog)
 		metalog = "************** Azure VM_SIZE Delete ******************* \t"
@@ -348,6 +365,24 @@ if __name__ == "__main__":
 		execute_command_with_flag("azure vm create " + config['VM_SIZE_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ -z medium -c -l "+config['LOCATION'],logfile,config['VM_SIZE_CREATE_FLAG'],metalog)
 		metalog = "************** Azure create VM_CUSTOM_DATA ******************* \t"
 		execute_command_with_flag("azure vm create -d " + config['CUSTOM_DATA_FILE'] + " " + config['VM_CUSTOMDATA_NAME'] + " " + config['VM_VNET_IMAGE_NAME'] + " communityUser PassW0rd$ -l "+config['LOCATION'],logfile,config['VM_CUSTOMDATA_CREATE_FLAG'],metalog)
+		
+		metalog = "************** Azure static-ip VM Create******************* \t"
+		execute_command_with_flag("azure vm create "+config['STATICIP_VM_NAME']+" "+config['IMAGE_NAME']+" communityUser PassW0rd$ "+" --virtual-network-name "+config['NETWORK_NAME'] + " " + "--affinity-group" +  " " + config['AFFINITY_GRP_NAME'] + " " + " --static-ip "+ " " + config['STATIC_IP_TO_CREATE'],logfile,config['VM_STATICIP_CREATE_FLAG'],metalog)
+		metalog = "************** Azure static-ip Set ******************* \t"
+		execute_command_with_flag("azure vm static-ip set "+ config['STATICIP_VM_NAME'] +" "+ config['STATIC_IP_TO_SET'],logfile,config['VM_STATICIP_CREATE_FLAG'],metalog)
+		metalog = "************** Azure static-ip Check ******************* \t"
+		execute_command_with_flag("azure network vnet static-ip check "+config['NETWORK_NAME'] + " " + config['STATIC_IP_TO_SET'],logfile,config['VM_STATICIP_CREATE_FLAG'],metalog)
+		metalog = "************** Azure static-ip Remove ******************* \t"
+		execute_command_with_flag("azure vm static-ip remove "+config['STATICIP_VM_NAME'],logfile,config['VM_STATICIP_CREATE_FLAG'],metalog)
+		metalog = "************** Azure static-ip VM Restart ******************* \t"
+		execute_command_with_flag("azure vm restart "+config['STATICIP_VM_NAME'],logfile,config['VM_STATICIP_CREATE_FLAG'],metalog)
+		metalog = "************** Azure static-ip VM Delete ******************* \t"
+ 		execute_command_with_flag("azure vm delete "+config['STATICIP_VM_NAME'] + " -b --quiet ",logfile,config["VM_STATICIP_CREATE_FLAG"],metalog)
+		metalog = "************** Azure static-ip Docker VM Create******************* \t"
+		execute_command_with_flag("azure vm docker create "+config['DOCKER_STATIC_VM_NAME']+" "+config['VM_DOCKER_IMG_NAME']+" communityUser PassW0rd$ "+" --virtual-network-name "+config['NETWORK_NAME'] + " " + "--affinity-group" +  " " + config['AFFINITY_GRP_NAME'] + " " + " --static-ip "+ " " + config['STATIC_IP_TO_CREATE'] + " " + config['CERT_FILE'] + " " + config['VM_DOCKER_PORT'],logfile,config['VM_STATICIP_CREATE_FLAG'],metalog)
+		metalog = "************** Azure static-ip Docker VM Delete ******************* \t"
+		execute_command_with_flag("azure vm delete "+config['DOCKER_STATIC_VM_NAME'] + " -b --quiet ",logfile,config['VM_STATICIP_CREATE_FLAG'],metalog)
+		
 		metalog = "************** Azure VM_VNet Delete ******************* \t"
 		execute_command_with_flag("azure vm delete "+config['VM_VNET_LABEL'] + " -b --quiet ",logfile,config['VM_VNET_DEL_FLAG'],metalog)
 		metalog = "************** Azure VM_SIZE Delete ******************* \t"
@@ -391,7 +426,6 @@ if __name__ == "__main__":
  		execute_command_with_flag("azure vm docker create "+ config['VM_NAME'] + " "+ config['VM_DOCKER_IMG_NAME'] +" "+ config['USER_NAME'] +" "+ config['PASSWORD'] +" -l " +config['LOCATION']+ " " + config['CERT_FILE'] + " " + config['VM_DOCKER_PORT'] ,logfile,config['VM_DOCKER_CREATE_FLAG'],metalog)
  		metalog = "************** Azure VM Docker Delete ******************* \t"
  		execute_command_with_flag("azure vm delete "+config['VM_NAME'] + " -b --quiet ",logfile,config["VM_DOCKER_DELETE_FLAG"],metalog)
-  		
-		metalog = "************** Azure Account Clear ******************* \t"
+  		metalog = "************** Azure Account Clear ******************* \t"
 		execute_command_with_flag("azure account clear --quiet",logfile,config['ACCOUNT_CLEAR_FLAG'],metalog)
-    printstatus()
+printstatus()
