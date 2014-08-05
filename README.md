@@ -20,6 +20,8 @@
 # Note 
 * if GLOBAL_FLAG=0 then only those command which has its flag value as 1 will execute
 * if GLOBAL_FLAG=1 the all the commands will execute
-* in GLOBAL_FLAG=0 mode change flag variables(present below #**FLAG VALUES**) to run or skip commands
- 
+* if GLOBAL_FLAG=0 mode change flag variables(present below #**FLAG VALUES**) to run or skip commands
+* To run the python script against a downloaded repo, replace azure with node bin/azure in all the commands,
+  for eg : the downloaded xplat code is in D:\azure-xplat , place the scripts inside the D:\azure-xplat , then replace the commands "azure" with "node bin/azure" in AutomationScript.py file.
+
 [0]: http://www.python.org/download/releases/2.7.3/
