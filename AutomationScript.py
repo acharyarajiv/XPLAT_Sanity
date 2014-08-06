@@ -104,7 +104,7 @@ if __name__ == "__main__":
 		execute_command("azure account affinity-group show " +config['AFFINITY_GRP_NAME'] ,logfile,metalog)		
 
 		metalog = "************** Azure Account Storage List ******************* \t"
-		execute_command("azure account storage list ",logfile,metalog)		
+		execute_command("azure storage account list ",logfile,metalog)		
 		metalog = "************** Azure Location List ******************* \t"
 		execute_command("azure vm location list",logfile,metalog)
 		metalog = "************** Azure Config List ******************* \t"
@@ -284,7 +284,7 @@ if __name__ == "__main__":
 		execute_command_with_flag("azure account affinity-group show " +config['AFFINITY_GRP_NAME'] ,logfile,config['ACCOUNT_AFF_GRP_SHOW_FLAG'],metalog)		
 
 		metalog = "************** Azure Account Storage List ******************* \t"
-		execute_command_with_flag("azure account storage list",logfile,config['ACCOUNT_STORAGE_LIST_FLAG'],metalog)		
+		execute_command_with_flag("azure storage account list",logfile,config['ACCOUNT_STORAGE_LIST_FLAG'],metalog)		
 		metalog = "************** Azure Location List ******************* \t"
 		execute_command_with_flag("azure vm location list",logfile,config['AZURE_LOC_LIST_FLAG'],metalog)
 		metalog = "************** Azure Config List ******************* \t"
