@@ -4,20 +4,14 @@ import sys,os,subprocess
 import time
 import sys
 
-
 count_err = 0
 count_ok = 0
-
-
-
 
 def create_file(path):
 	if os.path.exists(path):
 		os.remove(path)
 	logfile = open(path,'a')
 	return logfile
-
-
 
 def execute_command_with_flag(cmd,logfile,flag,metalog):
 	if(flag == "1"):
