@@ -238,9 +238,9 @@ if __name__ == "__main__":
 		execute_command("azure account affinity-group delete "+config['AFFINITY_GRP_NAME'] + " --quiet",logfile,metalog)
 		
  		metalog = "**********************Azure VM Docker Create********************************* \t"	
- 		execute_command("azure vm docker create "+ config['XplatDockerVM'] + " "+ config['VM_DOCKER_IMG_NAME'] +" "+ config['USER_NAME'] +" "+ config['PASSWORD'] +" -l " +config['LOCATION']+" " + config['CERT_FILE'] + " " + config['VM_DOCKER_PORT'] ,logfile,metalog)
+ 		execute_command("azure vm docker create "+ config['VM_DOCKER_NAME'] + " "+ config['VM_DOCKER_IMG_NAME'] +" "+ config['USER_NAME'] +" "+ config['PASSWORD'] +" -l " +config['LOCATION']+" " + config['CERT_FILE'] + " " + config['VM_DOCKER_PORT'] ,logfile,metalog)
  		metalog = "************** Azure VM Docker Delete ******************* \t"
- 		execute_command("azure vm delete "+config['XplatDockerVM'] + " -b --quiet ",logfile,metalog)
+ 		execute_command("azure vm delete "+config['VM_DOCKER_NAME'] + " -b --quiet ",logfile,metalog)
 
 		metalog = "************** Azure Account Clear ******************* \t"
 		execute_command("azure account clear --quiet",logfile,metalog)
@@ -417,9 +417,9 @@ if __name__ == "__main__":
 		execute_command_with_flag("azure account affinity-group delete "+config['AFFINITY_GRP_NAME'] + " --quiet ",logfile,config['VM_AFFINITY_DEL_FLAG'],metalog)
 
 		metalog = "**********************Azure VM Docker Create[Docker Port]********************************* \t"	
- 		execute_command_with_flag("azure vm docker create "+ config['VM_NAME'] + " "+ config['VM_DOCKER_IMG_NAME'] +" "+ config['USER_NAME'] +" "+ config['PASSWORD'] +" -l " +config['LOCATION']+ " " + config['CERT_FILE'] + " " + config['VM_DOCKER_PORT'] ,logfile,config['VM_DOCKER_CREATE_FLAG'],metalog)
+ 		execute_command_with_flag("azure vm docker create "+ config['VM_DOCKER_NAME'] + " "+ config['VM_DOCKER_IMG_NAME'] +" "+ config['USER_NAME'] +" "+ config['PASSWORD'] +" -l " +config['LOCATION']+ " " + config['CERT_FILE'] + " " + config['VM_DOCKER_PORT'] ,logfile,config['VM_DOCKER_CREATE_FLAG'],metalog)
  		metalog = "************** Azure VM Docker Delete ******************* \t"
- 		execute_command_with_flag("azure vm delete "+config['VM_NAME'] + " -b --quiet ",logfile,config["VM_DOCKER_DELETE_FLAG"],metalog)
+ 		execute_command_with_flag("azure vm delete "+config['VM_DOCKER_NAME'] + " -b --quiet ",logfile,config["VM_DOCKER_DELETE_FLAG"],metalog)
   		metalog = "************** Azure Account Clear ******************* \t"
 		execute_command_with_flag("azure account clear --quiet",logfile,config['ACCOUNT_CLEAR_FLAG'],metalog)
 printstatus()
