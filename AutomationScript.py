@@ -89,6 +89,13 @@ if __name__ == "__main__":
 
 		metalog = " ************** Azure Service List ******************* \t"
 		execute_command("azure service list",logfile,metalog)
+		
+		metalog = " ************** Azure network reserved-ip list ******************* \t"
+		execute_command("azure network reserved-ip list",logfile,metalog)
+		metalog = " ************** Azure network reserved-ip create ******************* \t"
+		execute_command("azure network reserved-ip create " + config['RIPNAME'] + " " + config['LOCATION'], logfile,metalog)
+		metalog = " ************** Azure  network reserved-ip show ******************* \t"
+		execute_command("azure network reserved-ip show " + config['RIPNAME'],logfile,metalog)
 
 		metalog = "************** Azure Account Affinity Group List ******************* \t"
 		execute_command("azure account affinity-group list ",logfile,metalog)
@@ -125,6 +132,13 @@ if __name__ == "__main__":
 		metalog = "************** Azure VM Create ******************* \t"
 		execute_command("azure vm create "+config['VM_NAME']+" "+config['IMAGE_NAME']+" "+config['USER_NAME']+" "+config['PASSWORD']+" -l " +config['LOCATION']+" -e ",logfile,metalog)
 
+		metalog = "************** Azure Vm Extension list ************\t"
+		execute_command("azure vm extension list",logfile,metalog)		
+		metalog = "************** Azure Vm Extension Get ************\t"
+		execute_command("azure vm extension get "+config['VM_NAME'],logfile,metalog)
+		metalog = "************** Azure Vm Extension Set ************\t"
+		execute_command("azure vm extension set "+config['VM_NAME'] +" "+config['EXTN_NAME']+" "+config['EXTN_PUB_NAME']+" "+config['EXTN_VERSION'] +" "+" -C "+config['EXTN_FILE'],logfile,metalog)
+		
 		metalog = "************** Azure Disk List with VMName ************\t"
 		execute_command("azure vm disk list "+config['VM_NAME'],logfile,metalog)
 
@@ -217,13 +231,19 @@ if __name__ == "__main__":
 		metalog = "************** Azure VM SSHCert Delete ******************* \t"
 		execute_command("azure vm delete "+config['VM_SSH_NAME'] + " -b --quiet",logfile,metalog)
 
-
+		metalog = "************** Azure VM reserved-ip Create ******************* \t"
+		execute_command("azure vm create " + config['VM_RIP_NAME'] + " "+config['IMAGE_NAME']+" "+config['USER_NAME']+" "+config['PASSWORD']+" -l " +config['LOCATION']+" -R " + config['RIPNAME'] + " --ssh",logfile,metalog)
+		metalog = "************** Azure VM reserved-ip Create ******************* \t"
+		execute_command("azure vm delete "+config['VM_RIP_NAME'] + " -b --quiet ",logfile,metalog)
+		
 		metalog = "************** Azure Network Delete ******************* \t"
 		execute_command("azure network vnet delete "+config['NETWORK_NAME'] + " --quiet ",logfile,metalog)
 		metalog = "************** Azure VM Delete ******************* \t"
 		execute_command("azure vm delete "+config['VM_NAME'] + " -b --quiet ",logfile,metalog)
 		metalog = "************** Azure Windows VM Delete ******************* \t"
 		execute_command("azure vm delete "+config['VM_WIN_NAME'] + " -b --quiet ",logfile,metalog)
+		metalog = " ************** Azure  network reserved-ip delete ******************* \t"
+		execute_command("azure network reserved-ip delete " + config['RIPNAME'] +" -q",logfile,metalog)
 
 		metalog = "************* Azure VM Disk Upload ******************* \t"
 		execute_command("azure vm disk upload "+config['DISK_UPLOAD_SOURCE_PATH']+" "+config['DISK_UPLOAD_BLOB_URL']+" "+config['STORAGE_ACCOUNT_KEY'],logfile,metalog)		
@@ -269,6 +289,12 @@ if __name__ == "__main__":
 		metalog = "************** Azure Service List ******************* \t"
 		execute_command_with_flag("azure service list",logfile,config['AZURE_SERV_LIST_FLAG'],metalog)
 
+		metalog = " ************** Azure network reserved-ip list ******************* \t"
+		execute_command_with_flag("azure network reserved-ip list",logfile,config['RESERVED_IP_LIST_FLAG'],metalog)
+		metalog = " ************** Azure network reserved-ip create ******************* \t"
+		execute_command_with_flag("azure network reserved-ip create " + config['RIPNAME'] + " " + config['LOCATION'], logfile,config['RESERVED_IP_CREATE_FLAG'],metalog)
+		metalog = " ************** Azure  network reserved-ip show ******************* \t"
+		execute_command_with_flag("azure network reserved-ip show " + config['RIPNAME'],logfile,config['RESERVED_IP_SHOW_FLAG'],metalog)
 
 		metalog = "************** Azure Account Affinity Group List ******************* \t"
 		execute_command_with_flag("azure account affinity-group list",logfile,config['ACCOUNT_AFF_GRP_FLAG'],metalog)
@@ -304,7 +330,14 @@ if __name__ == "__main__":
 		execute_command_with_flag("azure vm list",logfile,config['VM_LIST_FLAG'],metalog)		
 		metalog = "************** Azure VM Create ******************* \t"
 		execute_command_with_flag("azure vm create "+config['VM_NAME']+" "+config['IMAGE_NAME']+" "+config['USER_NAME']+" "+config['PASSWORD']+" -l " +config['LOCATION']+" -e ",logfile,config['VM_CREATE_FLAG'],metalog)
-
+		
+		metalog = "************** Azure Vm Extension list ************\t"
+		execute_command_with_flag("azure vm extension list",logfile,config['VM_EXTENSION_LIST_FLAG'],metalog)		
+		metalog = "************** Azure Vm Extension Get ************\t"
+		execute_command_with_flag("azure vm extension get "+config['VM_NAME'],logfile,config['VM_EXTENSION_GET_FLAG'],metalog)
+		metalog = "************** Azure Vm Extension Set ************\t"
+		execute_command_with_flag("azure vm extension set "+config['VM_NAME'] +" "+config['EXTN_NAME']+" "+config['EXTN_PUB_NAME']+" "+config['EXTN_VERSION'] +" "+" -C "+config['EXTN_FILE'],logfile,config['VM_EXTENSION_SET_FLAG'],metalog)
+		
 		metalog = "************** Azure Disk List with VMName ************\t"
 		execute_command_with_flag("azure vm disk list "+config['VM_NAME'],logfile,config['DISK_LIST_VM_NAME_FLAG'],metalog)
 
@@ -327,7 +360,6 @@ if __name__ == "__main__":
 		metalog = "************** Azure VM Endpoint List ******************* \t"
 		execute_command_with_flag("azure vm endpoint list "+config['VM_NAME'],logfile,config['VM_ENDPNT_LIST_FLAG'],metalog)
 		metalog = "************** Azure VM Endpoint Update ******************* \t"
-		# execute_command_with_flag("azure vm endpoint update "+config['VM_NAME']+ " tcp-4444-4454 -n testpoint ",logfile,config['VM_ENDPNT_UPD_FLAG'],metalog)
 		execute_command_with_flag("azure vm endpoint update "+config['VM_NAME']+ " -n tcp-5555-5565 +" "+ -l 4440 +" "+ -t 4441 +" " +",logfile,config['VM_ENDPNT_UPD_FLAG'],metalog)
 		metalog = "************** Azure VM Endpoint Delete ******************* \t"
 		execute_command_with_flag("azure vm endpoint delete "+config['VM_NAME']+ " testpoint ",logfile,config['VM_ENDPNT_DEL_FLAG'],metalog)
@@ -397,12 +429,19 @@ if __name__ == "__main__":
 		metalog = "************** Azure VM SSHCert Delete ******************* \t"
 		execute_command_with_flag("azure vm delete "+config['VM_SSH_NAME'] + " -b --quiet ",logfile,config['VM_SSH_DEL_FLAG'],metalog)
 
+		metalog = "************** Azure VM reserved-ip Create ******************* \t"
+		execute_command_with_flag("azure vm create " + config['VM_RIP_NAME'] + " "+config['IMAGE_NAME']+" "+config['USER_NAME']+" "+config['PASSWORD']+" -l " +config['LOCATION']+" -R " + config['RIPNAME'] + " --ssh",logfile,config['VM_RIP_CREATE_FLAG'],metalog)
+		metalog = "************** Azure VM reserved-ip Create ******************* \t"
+		execute_command_with_flag("azure vm delete "+config['VM_RIP_NAME'] + " -b --quiet ",logfile,config['VM_RIP_DEL_FLAG'],metalog)
+		
 		metalog = "************** Azure Network Delete ******************* \t"
 		execute_command_with_flag("azure network vnet delete "+config['NETWORK_NAME'] + " --quiet ",logfile,config['NETWORK_DELETE_FLAG'],metalog)				
 		metalog = "************** Azure VM Delete ******************* \t"
 		execute_command_with_flag("azure vm delete "+config['VM_NAME'] + " -b --quiet ",logfile,config['VM_DEL_FLAG'],metalog)
 		metalog = "************** Azure Windows VM Delete ******************* \t"
 		execute_command_with_flag("azure vm delete "+config['VM_WIN_NAME'] + " -b --quiet ",logfile,config['VM_DEL_FLAG'],metalog)
+		metalog = " ************** Azure  network reserved-ip delete ******************* \t"
+		execute_command_with_flag("azure network reserved-ip delete " + config['RIPNAME'] +" -q",logfile,config['RESERVED_IP_DELETE_FLAG'],metalog)
 
 		metalog = "************** Azure VM Disk Upload ******************* \t"
 		execute_command_with_flag("azure vm disk upload "+config['DISK_UPLOAD_SOURCE_PATH']+" "+config['DISK_UPLOAD_BLOB_URL']+" "+config['STORAGE_ACCOUNT_KEY'],logfile,config['DISK_UPLOAD_FLAG'],metalog)		

@@ -31,6 +31,7 @@ config = {
 "VM_COMM_NAME" : "XplatTestComm",
 "VM_SSH_NAME" : "XplatTestSsh",
 "VM_DOCKER_NAME" : "XplatDockerVM",
+"VM_RIP_NAME" : "XplatRIPVM",
 "VM_DOCKER_PORT" : "4113",
 "VM_CUSTOMDATA_NAME" : "XplatCustomdata",
 "LOGINUSER" : "LOGINUSER",
@@ -51,6 +52,11 @@ config = {
 "AFFINITY_GRP_LABEL":"XplatTestGrp",
 "AFFINITY_GRP_DESC":'"Test Affinity Group"',
 
+#************** VM Extension VARIABLES *****************
+"EXTN_PUB_NAME":"Microsoft.Compute",
+"EXTN_NAME":"CustomScriptExtension",
+"EXTN_VERSION":"1.1 ",
+"EXTN_FILE":"foo.json",
 #************** VM NETWORK VARIABLES *****************
 "NETWORK_NAME":"offshoreTestXplatNetwork",
 
@@ -97,9 +103,12 @@ config = {
 "PP_LP_LBSETANDPROB_PROBPORT":"7777",
 "PP_LP_LBSETANDPROB_PROBPATH":"/prob/listner1",
 
+#RESERVED-IP
+"RIPNAME" : "XplatTestRIP",
+
 #************** FLAG VALUES **************************
 
-"GLOBAL_FLAG" : "0",
+"GLOBAL_FLAG" : "1",
 "AD_Login" : "0",
 
 # NPM FLAGS
@@ -126,7 +135,7 @@ config = {
 "AZURE_LOGIN_FLAG" : "0",
 
 #STATICIP FLAGS
-"VM_STATICIP_CREATE_FLAG":"1",
+"VM_STATICIP_CREATE_FLAG":"0",
 # VM FLAGS
 
 "VM_CREATE_FLAG" : "0" ,
@@ -156,6 +165,8 @@ config = {
 "VM_CUSTOMDATA_DEL_FLAG" : "0" ,
 "VM_COMM_DEL_FLAG" : "0" ,
 "VM_SSH_DEL_FLAG" : "0" ,
+"VM_RIP_CREATE_FLAG" : "0" ,
+"VM_RIP_DEL_FLAG" : "0" ,
 
 # IMAGE FLAGS
 
@@ -181,5 +192,16 @@ config = {
 #DOCKER FLAGS
 "VM_DOCKER_CREATE_FLAG" : "0" ,
 "VM_DOCKER_DELETE_FLAG" : "0",
+
+#EXTENSION_FLAGS
+"VM_EXTENSION_LIST_FLAG" : "1" ,
+"VM_EXTENSION_GET_FLAG" : "1" ,
+"VM_EXTENSION_SET_FLAG" : "1" ,
+
+#RESERVED-IP
+"RESERVED_IP_SHOW_FLAG" : "0" ,
+"RESERVED_IP_CREATE_FLAG" : "0" ,
+"RESERVED_IP_LIST_FLAG" : "0" ,
+"RESERVED_IP_DELETE_FLAG" : "0" ,
 
 }
