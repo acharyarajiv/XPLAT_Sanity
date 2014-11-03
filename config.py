@@ -77,6 +77,19 @@ config = {
 "DISK_IMAGE_BLOB_URL": "DISK_IMAGE_BLOB_URL", 			#http://StoragecontainerUrl/disks/OffshoreXplatTestDisk"
 "VM_DISK_ATTACH_BLOB_URL": "VM_DISK_ATTACH_BLOB_URL", 	#http://StoragecontainerUrl/disks/disknewupload.vhd"
 
+#************** PIP COMMANDS ****************************
+"VM_WIN_PIP" : "VM_XPLAT_PIP",
+"PUBLICIPNAME" : "VMPUBLICIP",
+"PUBLICIPSET" : "VMPUBLICIPSET",
+
+
+#************** ACL COMMANDS ****************************
+"VM_WIN_ACL" : "VM_WIN_ACL",
+"ENDPOINT" : "rdp",
+"REMOTESUBNET" : "23.99.18.228/31",
+"ORDER" : "1",
+"ACTION" : "permit",
+
 #************** VM DISK UPLOAD VARIABLES *****************
 "DISK_UPLOAD_BLOB_URL": "DISK_UPLOAD_BLOB_URL",			#http://StoragecontainerUrl/disks/OffshoreTestDiskImage002.vhd",
 "DISK_UPLOAD_SOURCE_PATH" : "DISK_UPLOAD_SOURCE_PATH", 	#http://StoragecontainerUrl/vm-images/OffshoreTestImage002.vhd",
@@ -167,6 +180,19 @@ config = {
 "VM_SSH_DEL_FLAG" : "0" ,
 "VM_RIP_CREATE_FLAG" : "0" ,
 "VM_RIP_DEL_FLAG" : "0" ,
+
+#PIP FLAGS
+"PIP_VM_CREATE_FLAG" : "0",
+"PIP_VM_LIST_FLAG" : "0",
+"PIP_VM_REMOVE_FLAG" : "0",
+"PIP_VM_SET_FLAG" : "0",
+"PIP_VM_DELETE_FLAG" : "0",
+
+#ACL FLAGS
+"ACL_VM_CREATE_FLAG" : "0",
+"ACL_RULE_CREATE_FLAG" : "0",
+"ACL_RULE_LIST_FLAG" : "0",
+"ACL_RULE_DELETE_FLAG" : "0",
 
 # IMAGE FLAGS
 

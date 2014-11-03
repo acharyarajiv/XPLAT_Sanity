@@ -145,6 +145,36 @@ if __name__ == "__main__":
 		metalog = "************** Azure Windows VM Create ******************* \t"
 		execute_command("azure vm create "+config['VM_WIN_NAME']+" "+config['WIN_IMAGE_NAME']+" testuser "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,metalog)
 
+		metalog = "************** PIP Commands ****************************** \t"
+		metalog = "************** VM Create with PIP ****************************** \t"
+		execute_command("azure vm create "+ "-i " + config['PUBLICIPNAME'] +config['VM_WIN_PIP']+" "+config['WIN_IMAGE_NAME']+" testuser "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,metalog)
+
+		metalog = "************** PIP List ****************************** \t"
+		execute_command("azure vm public-ip list"+config['VM_WIN_PIP'],logfile,metalog)
+		
+		metalog = "************** PIP REMOVE ****************************** \t"
+		execute_command("azure vm public-ip remove"+config['VM_WIN_PIP'],logfile,metalog)
+		
+		metalog = "************** PIP SET ****************************** \t"
+		execute_command("azure vm public-ip set "+config['VM_WIN_PIP'] +" " + config['PUBLICIPSET'],logfile,metalog)
+		 
+		metalog = "************** PIP VM DELETE ****************************** \t" 
+		execute_command("azure vm delete "+ config['VM_WIN_PIP'] + " -b -q",logfile,metalog)
+		
+		metalog = "************** Azure Windows VM Create ******************* \t"
+		execute_command("azure vm create "+config['VM_WIN_ACL']+" "+config['WIN_IMAGE_NAME']+" testuser "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,metalog)
+
+		metalog = "************** ACL Create RULE ****************************** \t"
+		execute_command("azure vm endpoint acl-rule create "+ config['VM_WIN_ACL'] + " " + config['ENDPOINT'] + " " + config['ORDER'] + " " + config['ACTION'] + " " + config['REMOTESUBNET'],logfile,metalog)
+		
+		metalog = "************** ACL List****************************** \t" 
+		execute_command("azure vm endpoint acl-rule list "+ config['VM_WIN_ACL'] + " " + config['ENDPOINT'],logfile,metalog)
+		
+		metalog = "************** ACL Rule Delete****************************** \t" 
+		execute_command("azure vm endpoint acl-rule delete "+ config['VM_WIN_ACL'] + " " + config['ENDPOINT']+ " " + config['ORDER'],logfile,metalog)
+		
+		metalog = "************** ACL VM DELETE ****************************** \t" 
+		execute_command("azure vm delete "+ config['VM_WIN_ACL'] + " -b -q",logfile,metalog)
 		
 		metalog = "************** Azure VM Show ******************* \t"
 		execute_command("azure vm show "+config['VM_NAME'],logfile,metalog)
@@ -340,7 +370,38 @@ if __name__ == "__main__":
 		
 		metalog = "************** Azure Disk List with VMName ************\t"
 		execute_command_with_flag("azure vm disk list "+config['VM_NAME'],logfile,config['DISK_LIST_VM_NAME_FLAG'],metalog)
+        
+		metalog = "************** PIP Commands ****************************** \t"
+		metalog = "************** VM Create with PIP ****************************** \t"
+		execute_command_with_flag("azure vm create "+ "-i " + config['PUBLICIPNAME'] +config['VM_WIN_PIP']+" "+config['WIN_IMAGE_NAME']+" testuser "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,config['PIP_VM_CREATE_FLAG'],metalog)
 
+		metalog = "************** PIP List ****************************** \t"
+		execute_command_with_flag("azure vm public-ip list"+config['VM_WIN_PIP'],logfile,config['PIP_VM_LIST_FLAG'],metalog)
+		
+		metalog = "************** PIP REMOVE ****************************** \t"
+		execute_command_with_flag("azure vm public-ip remove"+config['VM_WIN_PIP'],logfile,config['PIP_VM_REMOVE_FLAG'],metalog)
+		
+		metalog = "************** PIP SET ****************************** \t"
+		execute_command_with_flag("azure vm public-ip set "+config['VM_WIN_PIP'] +" " +config['PUBLICIPSET'],logfile,config['PIP_VM_SET_FLAG'],metalog)
+		 
+		metalog = "************** PIP VM DELETE ****************************** \t" 
+		execute_command_with_flag("azure vm delete "+ config['VM_WIN_PIP'] + " -b -q",logfile,config['PIP_VM_DELETE_FLAG'],metalog)
+		
+		metalog = "************** Azure Windows VM Create ******************* \t"
+		execute_command_with_flag("azure vm create "+config['VM_WIN_ACL']+" "+config['WIN_IMAGE_NAME']+" testuser "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,config['ACL_VM_CREATE_FLAG'],metalog)
+
+		metalog = "************** ACL Create RULE ****************************** \t"
+		execute_command_with_flag("azure vm endpoint acl-rule create "+ config['VM_WIN_ACL'] + " " + config['ENDPOINT'] + " " + config['ORDER'] + " " + config['ACTION'] + " " + config['REMOTESUBNET'],logfile,config['ACL_RULE_CREATE_FLAG'],metalog)
+		
+		metalog = "************** ACL List****************************** \t" 
+		execute_command_with_flag("azure vm endpoint acl-rule list "+ config['VM_WIN_ACL'] + " " + config['ENDPOINT'],logfile,config['ACL_RULE_LIST_FLAG'],metalog)
+		
+		metalog = "************** ACL Rule Delete****************************** \t" 
+		execute_command_with_flag("azure vm endpoint acl-rule delete "+ config['VM_WIN_ACL'] + " " + config['ENDPOINT']+ " " + config['ORDER'],logfile,config['ACL_RULE_DELETE_FLAG'],metalog)
+		
+		metalog = "************** ACL VM DELETE ****************************** \t" 
+		execute_command_with_flag("azure vm delete "+ config['VM_WIN_ACL'] + " -b -q",logfile,config['PIP_VM_DELETE_FLAG'],metalog)
+		
 		metalog = "************** Azure Windows VM Create ******************* \t"
 		execute_command_with_flag("azure vm create "+config['VM_WIN_NAME']+" "+config['WIN_IMAGE_NAME']+" testuser "+config['PASSWORD']+" -l " +config['LOCATION'],logfile,config['VM_CREATE_FLAG'],metalog)
 		metalog = "************** Azure VM Show ******************* \t"
